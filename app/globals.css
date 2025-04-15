@@ -1,0 +1,536 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light only;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 40%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 40%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 40%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 83%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 40%;
+
+    --radius: 0.375rem;
+
+    --ai-background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%), 
+                    radial-gradient(50% 50% at 60% 0%, rgba(152, 243, 236, 0.6) 0%, rgba(152, 243, 236, 0) 100%), 
+                    radial-gradient(50% 50% at 100% 0%, rgba(229, 255, 132, 0.8) 0%, rgba(229, 255, 132, 0) 100%), 
+                    radial-gradient(50% 50% at 0% 0%, rgba(231, 205, 255, 0.8) 0%, rgba(231, 205, 255, 0) 100%), 
+                    radial-gradient(50% 50% at 35% 0%, rgba(102, 163, 255, 0.8) 0%, rgba(102, 163, 255, 0) 100%), 
+                    linear-gradient(180deg, #DAE7FC 0%, #F6F7FC 100%);
+
+    --mobile-width: 991px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: #ffffff !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  html {
+    background-color: #ffffff !important;
+  }
+  p:first-of-type {
+    margin-top: 12px;
+  }
+}
+
+.prose p {
+  @apply text-gray-500 text-base mb-6 leading-relaxed;
+}
+
+.prose {
+  @apply max-w-none;
+}
+
+.label-right-edge {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: right;
+  color: rgb(160, 160, 160);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  font-weight: 300;
+}
+
+.floating-preview {
+  opacity: 0;
+  transform: translate3d(5.46432px, -3.47632px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-1deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  transition: opacity 0.3s ease;
+}
+
+/* Only show floating preview on desktop devices */
+@media (hover: hover) and (min-width: 992px) {
+  .group:hover .floating-preview {
+    opacity: 1;
+  }
+}
+
+/* Hide floating preview on mobile devices */
+@media (max-width: 991px) {
+  .floating-preview {
+    display: none;
+  }
+}
+
+.image-103 {
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+.dark-border.big-preview {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 16/9;
+  background: #fff;
+}
+
+.postemphasized {
+  transition: all 0.2s ease;
+  padding: 8px 12px;
+  margin: -8px -12px;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Only show hover effect on desktop devices */
+@media (hover: hover) and (min-width: 992px) {
+  .postemphasized:hover {
+    background-color: #00000005;
+    text-decoration: none;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .desktop-only {
+    display: none !important;
+  }
+  
+  div.max-w-\[518px\] {
+    padding-top: 5rem !important;
+  }
+
+  /* Mobile navigation specific styles */
+  .lg\:hidden {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .lg\:hidden .w-8 {
+    transition: all 0.2s ease;
+  }
+
+  .lg\:hidden .w-8:hover {
+    transform: scale(1.05);
+  }
+
+  .lg\:hidden .w-8.scale-110 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+.side-nav-bar {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: fixed;
+  left: 1rem;
+  top: 0;
+  height: 100vh;
+  padding: 2rem 0;
+  z-index: 50;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 992px) {
+  .side-nav-bar {
+    display: flex;
+  }
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: #000;
+  text-decoration: none;
+  width: fit-content;
+  background: transparent;
+}
+
+/* Only show hover effects on desktop devices */
+@media (hover: hover) and (min-width: 992px) {
+  .nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .nav-item:hover .text-block-20 {
+    opacity: 1;
+    max-width: 200px;
+    margin-left: 4px;
+  }
+}
+
+/* Hide text expansion on mobile devices */
+@media (max-width: 991px) {
+  .nav-item .text-block-20 {
+    display: none;
+  }
+}
+
+.nav-item.active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-item .icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.nav-item .text-block-20 {
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+/* Remove all old language switch styles */
+.language-switch {
+  display: none !important;
+}
+
+/* Remove duplicate language switch styles */
+button.language-switch {
+  display: none !important;
+}
+
+/* Mobile navigation styles */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .desktop-only {
+    display: none !important;
+  }
+  
+  div.max-w-\[518px\] {
+    padding-top: 5rem !important;
+  }
+
+  /* Mobile navigation specific styles */
+  .lg\:hidden {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .lg\:hidden .w-8 {
+    transition: all 0.2s ease;
+  }
+
+  .lg\:hidden .w-8:hover {
+    transform: scale(1.05);
+  }
+
+  .lg\:hidden .w-8.scale-110 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+.side-nav-bar {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: fixed;
+  left: 1rem;
+  top: 0;
+  height: 100vh;
+  padding: 2rem 0;
+  z-index: 50;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 992px) {
+  .side-nav-bar {
+    display: flex;
+  }
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: #000;
+  text-decoration: none;
+  width: fit-content;
+  background: transparent;
+}
+
+.nav-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.nav-item.active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-item .icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.nav-item .text-block-20 {
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover .text-block-20 {
+  opacity: 1;
+  max-width: 200px;
+  margin-left: 4px;
+}
+
+/* Remove conflicting nav styles */
+nav.fixed {
+  display: none;
+}
+
+@layer components {
+  .project-header {
+    z-index: 3;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    background-color: transparent;
+    flex: 0 auto;
+    justify-content: flex-start;
+    align-self: auto;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 0 0;
+    display: flex;
+    position: sticky;
+    top: 0;
+  }
+
+  .project-header-content {
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: #ffffff;
+    border-radius: 17px;
+    flex: 0 auto;
+    align-items: center;
+    padding: 4px;
+    display: flex;
+    box-shadow: 0 0 6px 3px #ffffff,
+                0 0 30px 10px #ffffff,
+                0 0 40px 10px #ffffffcc,
+                0 0 60px 30px #ffffffb3,
+                0 0 50px 20px #ffffff99,
+                0 0 62px 40px #ffffff80;
+  }
+
+  .project-header[data-sticky="true"] .project-header-content {
+    /* Remove box shadow from here since it's now directly on the content div */
+  }
+
+  /* Project date styles */
+  .project-date {
+    position: relative;
+    z-index: 4;
+    will-change: opacity;
+    opacity: 0.85;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-header[data-sticky="true"] ~ .project-date {
+    opacity: 0;
+  }
+}
+
+/* Base responsive container */
+.responsive-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navigation styles */
+nav.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 50;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+nav.fixed .no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+nav.fixed .no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Remove duplicate nav styles */
+.mobile-nav {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.page-content {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.aside-reveal {
+  animation: slideInFromLeft 0.8s ease-out;
+}
+
+@keyframes slideInButton {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Navigation button animations */
+.space-y-6 button:nth-child(1) {
+  animation: slideInButton 0.4s ease-out 0.1s both;
+}
+
+.space-y-6 button:nth-child(2) {
+  animation: slideInButton 0.4s ease-out 0.2s both;
+}
+
+.space-y-6 button:nth-child(3) {
+  animation: slideInButton 0.4s ease-out 0.3s both;
+}
+
+.space-y-6 button:nth-child(4) {
+  animation: slideInButton 0.4s ease-out 0.4s both;
+}
+
+/* Ensure buttons maintain their final state */
+.space-y-6 button {
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+/* Custom padding override */
+.pl-12 {
+  padding-left: 1.5rem;
+}
+
