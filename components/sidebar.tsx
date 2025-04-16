@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/context/LanguageContext"
@@ -23,6 +23,20 @@ export default function Sidebar({ scrollToSection: externalScrollToSection }: Si
   const { language, setLanguage } = useLanguage()
   const pathname = usePathname()
   const [isHovered, setIsHovered] = useState(false)
+  const [activeHash, setActiveHash] = useState('')
+
+  useEffect(() => {
+    // Set initial hash
+    setActiveHash(window.location.hash)
+
+    // Update hash on changes
+    const handleHashChange = () => {
+      setActiveHash(window.location.hash)
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   const navigationItems: NavigationItem[] = [
     { 
@@ -61,6 +75,8 @@ export default function Sidebar({ scrollToSection: externalScrollToSection }: Si
   }
 
   const handleScrollToSection = (section: string) => {
+    if (typeof window === 'undefined') return;
+    
     if (externalScrollToSection) {
       externalScrollToSection(section)
     } else {
@@ -87,7 +103,7 @@ export default function Sidebar({ scrollToSection: externalScrollToSection }: Si
         <div className="flex flex-col flex-grow justify-center pl-4">
           <div className="space-y-2">
             {navigationItems.map((item) => {
-              const isActive = window.location.hash === item.href
+              const isActive = activeHash === item.href
               
               return (
                 <button
@@ -124,7 +140,7 @@ export default function Sidebar({ scrollToSection: externalScrollToSection }: Si
         <div className="flex items-center h-full px-4">
           <div className="flex w-full overflow-x-auto no-scrollbar gap-2">
             {navigationItems.map((item) => {
-              const isActive = window.location.hash === item.href
+              const isActive = activeHash === item.href
               
               return (
                 <button
