@@ -79,15 +79,15 @@ export function MusicPlayerDialog({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={transition}
-          className="fixed bottom-8 right-8 z-50"
+          className="fixed bottom-8 left-4 right-4 md:left-auto md:right-8 z-50"
           onMouseEnter={() => setIsExpanded(true)}
           onMouseLeave={() => setIsExpanded(false)}
         >
           <motion.div 
-            className="backdrop-blur-[10%] bg-[rgba(255,255,255,0.58)] rounded-lg shadow-lg text-zinc-800 overflow-hidden"
+            className="backdrop-blur-[10%] bg-[rgba(255,255,255,0.58)] rounded-lg shadow-lg text-zinc-800 overflow-hidden w-full md:w-auto"
             layout
             animate={{
-              width: isExpanded ? 500 : 300,
+              width: isExpanded ? 'min(500px, calc(100vw - 32px))' : 'min(300px, calc(100vw - 32px))',
             }}
             transition={transition}
           >
@@ -140,10 +140,13 @@ export function MusicPlayerDialog({
                     </motion.button>
 
                     <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-2 min-w-[120px]">
+                      <div className="hidden md:flex items-center gap-2 min-w-[120px]">
                         <span className="text-sm text-gray-500">{formatTime(currentTime)}</span>
                         <span className="text-sm text-gray-500">/</span>
                         <span className="text-sm text-gray-500">{formatTime(duration)}</span>
+                      </div>
+                      <div className="flex md:hidden items-center gap-2">
+                        <span className="text-sm text-gray-500">{formatTime(currentTime)}</span>
                       </div>
                       <button 
                         onClick={handleClose}
