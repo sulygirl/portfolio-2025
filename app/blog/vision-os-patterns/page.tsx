@@ -17,7 +17,7 @@ export default function VisionOSPatterns() {
 
             <div className="mb-8">
               <Image
-                src="/images/vision-os-preview.png"
+                src="/portfolio-2025/images/vision-os-preview.png"
                 alt="Vision OS UI Preview"
                 width={500}
                 height={300}

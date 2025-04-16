@@ -442,7 +442,7 @@ export default function Home() {
                       <div className="floating-preview absolute -right-[300px] top-0 w-[300px]">
                         <div className="dark-border big-preview">
                           <img 
-                            src="/ai智能查单.gif" 
+                            src="/portfolio-2025/ai智能查单.gif" 
                             alt="AI查单概念" 
                             className="image-103 w-full h-full object-cover" 
                             loading="lazy"
@@ -465,7 +465,7 @@ export default function Home() {
                       <div className="floating-preview absolute -right-[300px] top-0 w-[300px]">
                         <div className="dark-border big-preview">
                           <img 
-                            src="/wickedproblem.gif" 
+                            src="/portfolio-2025/wickedproblem.gif" 
                             alt="Wicked Problem" 
                             className="image-103 w-full h-full object-cover" 
                             loading="lazy"
@@ -488,7 +488,7 @@ export default function Home() {
                       <div className="floating-preview absolute -right-[300px] top-0 w-[300px]">
                         <div className="dark-border big-preview">
                           <img 
-                            src="/设计决策.jpeg" 
+                            src="/portfolio-2025/设计决策.jpeg" 
                             alt="数据驱动设计" 
                             className="image-103 w-full h-full object-cover" 
                             loading="lazy"
@@ -568,7 +568,7 @@ export default function Home() {
                     <div className="rounded-xl overflow-hidden bg-gray-100 lg:max-w-[813px] lg:-mx-[147.5px]">
                       <div className="w-full aspect-video relative">
                         <Image 
-                          src="/osb重点内容介绍.gif"
+                          src="/portfolio-2025/osb重点内容介绍.gif"
                           alt="OneSearchBox Key Features Demo"
                           fill
                           className="object-cover"
@@ -629,7 +629,7 @@ export default function Home() {
                     <div className="rounded-xl overflow-hidden bg-gray-100 lg:max-w-[813px] lg:-mx-[147.5px]">
                       <div className="w-full aspect-video relative">
                         <Image 
-                          src="/智能推荐模板.gif"
+                          src="/portfolio-2025/智能推荐模板.gif"
                           alt="AI驱动的研发全链路赋能 Demo"
                           fill
                           className="object-cover"
@@ -692,7 +692,7 @@ export default function Home() {
                     <div className="rounded-xl overflow-hidden bg-gray-100 lg:max-w-[813px] lg:-mx-[147.5px]">
                       <div className="w-full aspect-video relative">
                         <Image 
-                          src="/物流行业语料库.gif"
+                          src="/portfolio-2025/物流行业语料库.gif"
                           alt="I18N Translation Demo"
                           fill
                           className="object-cover"
@@ -755,7 +755,7 @@ export default function Home() {
                     <div className="rounded-xl overflow-hidden bg-gray-100 lg:max-w-[813px] lg:-mx-[147.5px]">
                       <div className="w-full aspect-video relative">
                         <Image 
-                          src="/设计系统架构（修复版）.gif"
+                          src="/portfolio-2025/设计系统架构（修复版）.gif"
                           alt="Design System Architecture Demo"
                           fill
                           className="object-cover"
@@ -771,7 +771,7 @@ export default function Home() {
                     <div className="rounded-xl overflow-hidden lg:max-w-[813px] lg:-mx-[147.5px]">
                       <div className="w-full relative">
                         <Image 
-                          src="/dsm.svg"
+                          src="/portfolio-2025/dsm.svg"
                           alt="Clear 3D Structure Demo"
                           width={813}
                           height={500}

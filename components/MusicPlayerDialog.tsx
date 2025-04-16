@@ -97,7 +97,7 @@ export function MusicPlayerDialog({
                 {/* Left Section: Album Art and Title - Always visible */}
                 <div className="flex items-center gap-3 min-w-0 flex-1">
                   <img 
-                    src="/music-cover.png" 
+                    src="/portfolio-2025/music-cover.png" 
                     alt="Album Art" 
                     className="w-12 h-12 rounded-md object-cover flex-shrink-0"
                   />
