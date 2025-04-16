@@ -2,6 +2,7 @@ import { Dialog } from "@/components/ui/dialog"
 import { motion, AnimatePresence } from "framer-motion"
 import { Play, Pause, X } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
+import { getImagePath } from "@/lib/utils"
 
 interface MusicPlayerDialogProps {
   isOpen: boolean
@@ -97,7 +98,7 @@ export function MusicPlayerDialog({
                 {/* Left Section: Album Art and Title - Always visible */}
                 <div className="flex items-center gap-3 min-w-0 flex-1">
                   <img 
-                    src="/portfolio-2025/music-cover.png" 
+                    src={getImagePath("/music-cover.png")}
                     alt="Album Art" 
                     className="w-12 h-12 rounded-md object-cover flex-shrink-0"
                   />

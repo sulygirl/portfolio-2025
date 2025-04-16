@@ -8,7 +8,7 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/portfolio-2025',
+  basePath: process.env.NODE_ENV === 'production' ? '/portfolio-2025' : '',
   images: {
     unoptimized: true,
   },

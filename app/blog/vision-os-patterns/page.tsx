@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
+import { getImagePath } from "@/lib/utils"
 
 export default function VisionOSPatterns() {
   return (
@@ -17,7 +18,7 @@ export default function VisionOSPatterns() {
 
             <div className="mb-8">
               <Image
-                src="/portfolio-2025/images/vision-os-preview.png"
+                src={getImagePath("/images/vision-os-preview.png")}
                 alt="Vision OS UI Preview"
                 width={500}
                 height={300}
