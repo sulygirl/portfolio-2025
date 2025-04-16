@@ -65,6 +65,7 @@ export default function Home() {
   }
 
   const scrollToSection = (section: string) => {
+    if (typeof window === 'undefined') return;
     if (section === 'home') {
       window.scrollTo({
         top: 0,
@@ -86,6 +87,7 @@ export default function Home() {
   }
 
   const handleScroll = useCallback(() => {
+    if (typeof window === 'undefined') return;
     const scrollPosition = window.scrollY
     const projectSections = document.querySelectorAll('section[id]')
     const mb8Sections = document.querySelectorAll('section.mb-8')
