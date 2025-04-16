@@ -528,7 +528,6 @@ export default function Home() {
                 <MusicPlayerDialog
                   isOpen={isMusicPlayerOpen}
                   onClose={() => setIsMusicPlayerOpen(false)}
-                  audioUrl="/music/三十未满指南.mp3"
                   title="三十未满指南"
                 />
 

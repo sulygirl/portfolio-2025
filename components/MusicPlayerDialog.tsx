@@ -7,7 +7,6 @@ import { getImagePath } from "@/lib/utils"
 interface MusicPlayerDialogProps {
   isOpen: boolean
   onClose: () => void
-  audioUrl: string
   title: string
 }
 
@@ -19,7 +18,6 @@ const transition = {
 export function MusicPlayerDialog({
   isOpen,
   onClose,
-  audioUrl,
   title
 }: MusicPlayerDialogProps) {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -181,7 +179,7 @@ export function MusicPlayerDialog({
               {/* Hidden Audio Element */}
               <audio 
                 ref={audioRef}
-                src={audioUrl}
+                src={getImagePath("/music/三十未满指南.mp3")}
                 onTimeUpdate={handleTimeUpdate}
                 onLoadedMetadata={handleLoadedMetadata}
                 className="hidden"
